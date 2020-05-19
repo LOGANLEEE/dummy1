@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { incrementAsync, selectMain, MAIN_TEST } from './Slice';
+import { incrementAsync, selectHomeTest, MAIN_TEST } from './Slice';
 
-const Main = (props) => {
-	const mainTest = useSelector(selectMain);
+const Home = (props) => {
+	const mainTest = useSelector(selectHomeTest);
 	const dispatch = useDispatch();
 
 	return (
@@ -18,4 +18,4 @@ const Main = (props) => {
 	);
 };
 
-export default Main;
+export default Home;

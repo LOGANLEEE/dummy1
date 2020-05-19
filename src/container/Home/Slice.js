@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const mainSlice = createSlice({
-	name: 'main',
+export const homeSlice = createSlice({
+	name: 'home',
 	initialState: {
 		mainTest: 0,
 	},
@@ -13,7 +13,7 @@ export const mainSlice = createSlice({
 	},
 });
 
-export const { MAIN_TEST } = mainSlice.actions;
+export const { MAIN_TEST } = homeSlice.actions;
 
 export const incrementAsync = (amount) => (dispatch) => {
 	setTimeout(() => {
@@ -21,6 +21,6 @@ export const incrementAsync = (amount) => (dispatch) => {
 	}, 1000);
 };
 
-export const selectMain = (state) => state.main.mainTest;
+export const selectHomeTest = (state) => state.home.mainTest;
 
-export default mainSlice.reducer;
+export default homeSlice.reducer;
