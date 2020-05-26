@@ -48,7 +48,7 @@ const menus = [
 ];
 
 export const Navigation_ = () => <Navigation menus={menus} />;
-export const ThemeSwitcher_ = () => <ThemeSwitcher />;
+export const ThemeSwitcher_ = () => <ThemeSwitcher isDark={false} />;
 export const Home_ = () => (
 	<Provider store={store}>
 		<Home menus={menus} />
