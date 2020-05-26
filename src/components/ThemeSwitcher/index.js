@@ -5,13 +5,17 @@ import IconButton from '@material-ui/core/IconButton';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 
-const ThemeSwitcher = ({ isDark }) => {
+const ThemeSwitcher = ({ isDark, THEME_HANDLER }) => {
 	// const [isDark, setIsDark] = useState(true);
 
 	return (
 		<Wrapper>
-			<IconButton aria-label='dark' className={isDark ? 'dark' : 'white'}>
-				{isDark ? <Brightness3Icon /> : WbSunnyIcon}
+			<IconButton
+				onClick={() => THEME_HANDLER()}
+				aria-label='dark'
+				className={isDark ? 'dark' : 'white'}
+			>
+				{isDark ? <Brightness3Icon /> : <WbSunnyIcon />}
 			</IconButton>
 		</Wrapper>
 	);
@@ -23,8 +27,11 @@ const Wrapper = styled.div`
 	}
 `;
 
-ThemeSwitcher.propTypes = { isDark: PropTypes.bool };
+ThemeSwitcher.propTypes = {
+	isDark: PropTypes.bool,
+	THEME_HANDLER: PropTypes.func,
+};
 
-ThemeSwitcher.defaultProps = { isDark: true };
+ThemeSwitcher.defaultProps = { isDark: true, THEME_HANDLER: () => {} };
 
 export default ThemeSwitcher;
