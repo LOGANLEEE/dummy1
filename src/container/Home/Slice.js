@@ -21,6 +21,6 @@ export const incrementAsync = (amount) => (dispatch) => {
 	}, 1000);
 };
 
-export const selectHomeTest = (state) => state.home.mainTest;
+export const selectHome = (state) => state.home;
 
 export default homeSlice.reducer;

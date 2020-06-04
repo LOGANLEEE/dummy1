@@ -1,5 +1,6 @@
-import React from 'react';
-import { action } from '@storybook/addon-actions';
+import React, { useState } from 'react';
+// import { action } from '@storybook/addon-actions';
+import { withKnobs, object } from '@storybook/addon-knobs';
 
 import Navigation from 'components/Navigation';
 import ThemeSwitcher from 'components/ThemeSwitcher';
@@ -7,17 +8,41 @@ import ThemeSwitcher from 'components/ThemeSwitcher';
 import { Provider } from 'react-redux';
 import Home from 'container/Home';
 import store from 'store';
+
 import {
 	Home as HomeIcon,
-	Save,
-	CloudUpload,
-	KeyboardVoice,
 	Receipt,
+	AccountBalance,
+	Poll,
 } from '@material-ui/icons';
 
 export default {
 	title: 'Home',
 	// component: Home,
+	decorators: [
+		withKnobs,
+		(story) => <Provider store={store}>{story()}</Provider>,
+	],
+};
+
+export const Home_ = () => {
+	return <Home />;
+};
+
+export const ThemeSwitcher_ = () => {
+	const [isDark, setIsDark] = useState(false);
+	return (
+		<ThemeSwitcher
+			isDark={isDark}
+			THEME_HANDLER={() => {
+				setIsDark(!isDark);
+			}}
+		/>
+	);
+};
+
+export const Navigation_ = () => {
+	return <Navigation menus={menus} />;
 };
 
 const menus = [
@@ -28,10 +53,10 @@ const menus = [
 		startIcon: <HomeIcon />,
 	},
 	{
-		name: 'Main',
-		text: 'Main',
+		name: 'Ranking',
+		text: 'Ranking',
 		color: 'secondary',
-		startIcon: <CloudUpload />,
+		startIcon: <AccountBalance />,
 	},
 	{
 		name: 'News',
@@ -40,17 +65,9 @@ const menus = [
 		startIcon: <Receipt />,
 	},
 	{
-		name: 'Main',
-		text: 'Main',
+		name: 'BigData',
+		text: 'BigData',
 		color: 'primary',
-		startIcon: <KeyboardVoice />,
+		startIcon: <Poll />,
 	},
 ];
-
-export const Navigation_ = () => <Navigation menus={menus} />;
-export const ThemeSwitcher_ = () => <ThemeSwitcher />;
-export const Home_ = () => (
-	<Provider store={store}>
-		<Home menus={menus} />
-	</Provider>
-);
