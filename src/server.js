@@ -1,6 +1,5 @@
 const http = require('http');
-const cralwer = require('utils/crawler');
-const { PrismaClient } = require('@prisma/client');
+const cralwer = require('./utils/crawler');
 
 const hostname = '127.0.0.1';
 const port = 3333;
