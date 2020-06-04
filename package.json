@@ -1,0 +1,24 @@
+{
+	"name": "back",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "https://github.com/LOGANLEEE/dummy1.git",
+	"author": "LOGAN LEE <dlfjgkssk1@naver.com>",
+	"license": "MIT",
+	"dependencies": {
+		"@prisma/client": "2.0.0-beta.7",
+		"crawler": "^1.2.1",
+		"express": "^4.17.1",
+		"nodemon": "^2.0.4"
+	},
+	"scripts": {
+		"start": "nodemon --inspect src/server.js",
+		"test": "jest",
+		"int": "yarn prisma introspect && yarn prisma generate"
+	},
+	"devDependencies": {
+		"@prisma/cli": "2.0.0-beta.7",
+		"eslint": "^7.1.0",
+		"jest": "^26.0.1"
+	}
+}
