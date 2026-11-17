@@ -48,5 +48,8 @@
 		"@storybook/addons": "^5.3.18",
 		"@storybook/preset-create-react-app": "^2.1.1",
 		"@storybook/react": "^5.3.18"
+	},
+	"resolutions": {
+		"node-forge": "1.4.3"
 	}
 }
